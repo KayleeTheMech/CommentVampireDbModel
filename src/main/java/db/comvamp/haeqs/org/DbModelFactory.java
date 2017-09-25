@@ -1,4 +1,4 @@
-package xyz.haeqs;
+package db.comvamp.haeqs.org;
 
 import java.util.List;
 import org.eclipse.emf.ecore.EClass;
@@ -485,6 +485,8 @@ public class DbModelFactory implements ModelFactory {
       switch (featureID) {
         case DbModelPackage.PLATFORM_URL_FEATURE_ID:
           return getTarget().getURL();
+        case DbModelPackage.PLATFORM_UNIQUEID_FEATURE_ID:
+          return getTarget().getUniqueID();
         default:
           return super.eGet(eStructuralFeature);
       }
@@ -499,6 +501,9 @@ public class DbModelFactory implements ModelFactory {
       switch (featureID) {
         case DbModelPackage.PLATFORM_URL_FEATURE_ID:
           getTarget().setURL((String) value);
+          return;
+        case DbModelPackage.PLATFORM_UNIQUEID_FEATURE_ID:
+          getTarget().setUniqueID((String) value);
           return;
         default:
           super.eSet(eStructuralFeature, value);

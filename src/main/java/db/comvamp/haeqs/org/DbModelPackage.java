@@ -1,4 +1,4 @@
-package xyz.haeqs;
+package db.comvamp.haeqs.org;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -11,13 +11,13 @@ import org.eclipse.emf.texo.model.ModelPackage;
 import org.eclipse.emf.texo.model.ModelResolver;
 import org.eclipse.emf.texo.server.store.DaoRegistry;
 import org.eclipse.emf.texo.utils.ModelUtils;
-import xyz.haeqs.dao.ArtifactDao;
-import xyz.haeqs.dao.ArtifactDetailsDao;
-import xyz.haeqs.dao.AuthorDao;
-import xyz.haeqs.dao.AuthorDetailsDao;
-import xyz.haeqs.dao.CommentDao;
-import xyz.haeqs.dao.CommentDetailsDao;
-import xyz.haeqs.dao.PlatformDao;
+import db.comvamp.haeqs.org.dao.ArtifactDao;
+import db.comvamp.haeqs.org.dao.ArtifactDetailsDao;
+import db.comvamp.haeqs.org.dao.AuthorDao;
+import db.comvamp.haeqs.org.dao.AuthorDetailsDao;
+import db.comvamp.haeqs.org.dao.CommentDao;
+import db.comvamp.haeqs.org.dao.CommentDetailsDao;
+import db.comvamp.haeqs.org.dao.PlatformDao;
 
 /**
  * The <b>Package</b> for the model '<em><b>db</b></em>'. It contains initialization code and access to the Factory to instantiate
@@ -41,7 +41,7 @@ public class DbModelPackage extends ModelPackage {
    * 
    * @generated
    */
-  public static final String NS_URI = "https://haeqs.xyz/";
+  public static final String NS_URI = "https://org.haeqs.comvamp.db";
 
   /**
    * The {@link ModelFactory} for this package. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -133,6 +133,13 @@ public class DbModelPackage extends ModelPackage {
    * @generated
    */
   public static final int PLATFORM_URL_FEATURE_ID = 0;
+
+  /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @generated
+   */
+  public static final int PLATFORM_UNIQUEID_FEATURE_ID = 1;
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -431,6 +438,16 @@ public class DbModelPackage extends ModelPackage {
    */
   public EAttribute getPlatform_URL() {
     return (EAttribute) getPlatformEClass().getEAllStructuralFeatures().get(PLATFORM_URL_FEATURE_ID);
+  }
+
+  /**
+   * Returns the {@link EStructuralFeature} '<em><b>Platform.uniqueID</b></em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @return an instance of the {@link EStructuralFeature}: '<em><b>Platform.uniqueID</b></em>'.
+   * @generated
+   */
+  public EAttribute getPlatform_UniqueID() {
+    return (EAttribute) getPlatformEClass().getEAllStructuralFeatures().get(PLATFORM_UNIQUEID_FEATURE_ID);
   }
 
   /**

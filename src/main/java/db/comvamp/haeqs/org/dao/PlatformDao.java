@@ -1,9 +1,9 @@
-package xyz.haeqs.dao;
+package db.comvamp.haeqs.org.dao;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.texo.server.store.BaseDao;
-import xyz.haeqs.DbModelPackage;
-import xyz.haeqs.Platform;
+import db.comvamp.haeqs.org.DbModelPackage;
+import db.comvamp.haeqs.org.Platform;
 
 /**
  * The Dao implementation for the model object '<em><b>Platform</b></em>'.

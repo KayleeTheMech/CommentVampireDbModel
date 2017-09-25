@@ -1,4 +1,4 @@
-package xyz.haeqs;
+package db.comvamp.haeqs.org;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;

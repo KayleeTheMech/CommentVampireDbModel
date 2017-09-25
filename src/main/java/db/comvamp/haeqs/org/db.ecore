@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="comvamp.db" nsURI="https://haeqs.xyz/" nsPrefix="comvamp.db">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="comvamp.db" nsURI="https://org.haeqs.comvamp.db" nsPrefix="comvamp.db">
   <eClassifiers xsi:type="ecore:EClass" name="Comment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="org.eclipse.emf.texo">
@@ -55,6 +55,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="URL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="org.eclipse.emf.texo">
         <details key="java.member" value="uRL"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="uniqueID"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

@@ -1,15 +1,15 @@
-package xyz.haeqs;
+package db.comvamp.haeqs.org;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 
 /**
- * A representation of the model object '<em><b>CommentDetails</b></em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+ * A representation of the model object '<em><b>AuthorDetails</b></em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
  * 
  * @generated
  */
-@Entity(name = "comvamp_db_CommentDetails")
-public class CommentDetails {
+@Entity(name = "comvamp_db_AuthorDetails")
+public class AuthorDetails {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -40,12 +40,12 @@ public class CommentDetails {
   }
 
   /**
-   * Sets the '{@link CommentDetails#getType() <em>type</em>}' feature.
+   * Sets the '{@link AuthorDetails#getType() <em>type</em>}' feature.
    *
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
    * @param newType
-   *          the new value of the '{@link CommentDetails#getType() type}' feature.
+   *          the new value of the '{@link AuthorDetails#getType() type}' feature.
    * @generated
    */
   public void setType(String newType) {
@@ -65,12 +65,12 @@ public class CommentDetails {
   }
 
   /**
-   * Sets the '{@link CommentDetails#getContent() <em>content</em>}' feature.
+   * Sets the '{@link AuthorDetails#getContent() <em>content</em>}' feature.
    *
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
    * @param newContent
-   *          the new value of the '{@link CommentDetails#getContent() content}' feature.
+   *          the new value of the '{@link AuthorDetails#getContent() content}' feature.
    * @generated
    */
   public void setContent(String newContent) {
@@ -84,6 +84,6 @@ public class CommentDetails {
    */
   @Override
   public String toString() {
-    return "CommentDetails " + " [type: " + getType() + "]" + " [content: " + getContent() + "]";
+    return "AuthorDetails " + " [type: " + getType() + "]" + " [content: " + getContent() + "]";
   }
 }

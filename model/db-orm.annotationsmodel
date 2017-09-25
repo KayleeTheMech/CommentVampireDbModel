@@ -110,6 +110,12 @@
           <basic name="uRL"/>
         </eAttributeAnnotations>
       </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Platform/uniqueID"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic name="uniqueID"/>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
     </annotatedEClassifiers>
     <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEClass">
       <eClass href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Author"/>

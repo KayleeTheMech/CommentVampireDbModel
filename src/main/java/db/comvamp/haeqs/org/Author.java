@@ -1,4 +1,4 @@
-package xyz.haeqs;
+package db.comvamp.haeqs.org;
 
 import java.util.ArrayList;
 import java.util.List;
