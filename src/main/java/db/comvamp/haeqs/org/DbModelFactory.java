@@ -44,6 +44,8 @@ public class DbModelFactory implements ModelFactory {
         return createCommentDetails();
       case DbModelPackage.ARTIFACTDETAILS_CLASSIFIER_ID:
         return createArtifactDetails();
+      case DbModelPackage.PLATFORMDETAILS_CLASSIFIER_ID:
+        return createPlatformDetails();
       default:
         throw new IllegalArgumentException("The EClass '" + eClass.getName() + "' is not a valid EClass for this EPackage");
     }
@@ -66,6 +68,9 @@ public class DbModelFactory implements ModelFactory {
       case DbModelPackage.COMMENT_CLASSIFIER_ID:
         modelObject = new CommentModelObject();
         break;
+      case DbModelPackage.ABSTRACTARTIFACT_CLASSIFIER_ID:
+        modelObject = new AbstractArtifactModelObject();
+        break;
       case DbModelPackage.ARTIFACT_CLASSIFIER_ID:
         modelObject = new ArtifactModelObject();
         break;
@@ -78,11 +83,17 @@ public class DbModelFactory implements ModelFactory {
       case DbModelPackage.AUTHORDETAILS_CLASSIFIER_ID:
         modelObject = new AuthorDetailsModelObject();
         break;
+      case DbModelPackage.ABSTRACTARTIFACTDETAILS_CLASSIFIER_ID:
+        modelObject = new AbstractArtifactDetailsModelObject();
+        break;
       case DbModelPackage.COMMENTDETAILS_CLASSIFIER_ID:
         modelObject = new CommentDetailsModelObject();
         break;
       case DbModelPackage.ARTIFACTDETAILS_CLASSIFIER_ID:
         modelObject = new ArtifactDetailsModelObject();
+        break;
+      case DbModelPackage.PLATFORMDETAILS_CLASSIFIER_ID:
+        modelObject = new PlatformDetailsModelObject();
         break;
       default:
         throw new IllegalArgumentException("The EClass '" + eClass + "' is not defined in this EPackage");
@@ -189,6 +200,16 @@ public class DbModelFactory implements ModelFactory {
   }
 
   /**
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   * 
+   * @return an instance of the model object representing the EClass PlatformDetails
+   * @generated
+   */
+  public PlatformDetails createPlatformDetails() {
+    return new PlatformDetails();
+  }
+
+  /**
    * Converts an instance of an {@link EDataType} to a String. <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
    * @param eDataType
@@ -230,11 +251,12 @@ public class DbModelFactory implements ModelFactory {
    *
    * @generated
    */
-  public static class CommentModelObject<E extends Comment> extends AbstractModelObject<E> {
+  public static class CommentModelObject<E extends Comment> extends AbstractArtifactModelObject<E> {
 
     /**
      * @generated
      */
+    @Override
     public EClass eClass() {
       return DbModelPackage.INSTANCE.getCommentEClass();
     }
@@ -242,6 +264,7 @@ public class DbModelFactory implements ModelFactory {
     /**
      * @generated
      */
+    @Override
     public ModelPackage getModelPackage() {
       return DbModelPackage.INSTANCE;
     }
@@ -261,6 +284,8 @@ public class DbModelFactory implements ModelFactory {
     public Object eGet(EStructuralFeature eStructuralFeature) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
+        case DbModelPackage.COMMENT_ID_FEATURE_ID:
+          return getTarget().getId();
         case DbModelPackage.COMMENT_UNIQUEID_FEATURE_ID:
           return getTarget().getUniqueID();
         case DbModelPackage.COMMENT_INRESPONSETO_FEATURE_ID:
@@ -284,9 +309,6 @@ public class DbModelFactory implements ModelFactory {
     public void eSet(EStructuralFeature eStructuralFeature, Object value) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
-        case DbModelPackage.COMMENT_UNIQUEID_FEATURE_ID:
-          getTarget().setUniqueID((String) value);
-          return;
         case DbModelPackage.COMMENT_INRESPONSETO_FEATURE_ID:
           getTarget().setInResponseTo((Artifact) value);
           return;
@@ -338,6 +360,101 @@ public class DbModelFactory implements ModelFactory {
   }
 
   /**
+   * The adapter/wrapper for the EClass '<em><b>AbstractArtifact</b></em>'.
+   *
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   *
+   * @param <E>
+   *          the domain model java class
+   *
+   * @generated
+   */
+  public static class AbstractArtifactModelObject<E extends AbstractArtifact> extends AbstractModelObject<E> {
+
+    /**
+     * @generated
+     */
+    public EClass eClass() {
+      return DbModelPackage.INSTANCE.getAbstractArtifactEClass();
+    }
+
+    /**
+     * @generated
+     */
+    public ModelPackage getModelPackage() {
+      return DbModelPackage.INSTANCE;
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public Class<?> getTargetClass() {
+      return AbstractArtifact.class;
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public Object eGet(EStructuralFeature eStructuralFeature) {
+      final int featureID = eClass().getFeatureID(eStructuralFeature);
+      switch (featureID) {
+        case DbModelPackage.ABSTRACTARTIFACT_ID_FEATURE_ID:
+          return getTarget().getId();
+        case DbModelPackage.ABSTRACTARTIFACT_UNIQUEID_FEATURE_ID:
+          return getTarget().getUniqueID();
+        default:
+          return super.eGet(eStructuralFeature);
+      }
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public void eSet(EStructuralFeature eStructuralFeature, Object value) {
+      final int featureID = eClass().getFeatureID(eStructuralFeature);
+      switch (featureID) {
+        case DbModelPackage.ABSTRACTARTIFACT_ID_FEATURE_ID:
+          getTarget().setId((Integer) value);
+          return;
+        case DbModelPackage.ABSTRACTARTIFACT_UNIQUEID_FEATURE_ID:
+          getTarget().setUniqueID((String) value);
+          return;
+        default:
+          super.eSet(eStructuralFeature, value);
+      }
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public boolean eAddTo(EStructuralFeature eStructuralFeature, Object value) {
+      final int featureID = eClass().getFeatureID(eStructuralFeature);
+      switch (featureID) {
+
+        default:
+          return super.eAddTo(eStructuralFeature, value);
+      }
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public boolean eRemoveFrom(EStructuralFeature eStructuralFeature, Object value) {
+      final int featureID = eClass().getFeatureID(eStructuralFeature);
+      switch (featureID) {
+
+        default:
+          return super.eRemoveFrom(eStructuralFeature, value);
+      }
+    }
+  }
+
+  /**
    * The adapter/wrapper for the EClass '<em><b>Artifact</b></em>'.
    *
    * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -347,11 +464,12 @@ public class DbModelFactory implements ModelFactory {
    *
    * @generated
    */
-  public static class ArtifactModelObject<E extends Artifact> extends AbstractModelObject<E> {
+  public static class ArtifactModelObject<E extends Artifact> extends AbstractArtifactModelObject<E> {
 
     /**
      * @generated
      */
+    @Override
     public EClass eClass() {
       return DbModelPackage.INSTANCE.getArtifactEClass();
     }
@@ -359,6 +477,7 @@ public class DbModelFactory implements ModelFactory {
     /**
      * @generated
      */
+    @Override
     public ModelPackage getModelPackage() {
       return DbModelPackage.INSTANCE;
     }
@@ -378,10 +497,12 @@ public class DbModelFactory implements ModelFactory {
     public Object eGet(EStructuralFeature eStructuralFeature) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
-        case DbModelPackage.ARTIFACT_PUBLISHEDON_FEATURE_ID:
-          return getTarget().getPublishedOn();
+        case DbModelPackage.ARTIFACT_ID_FEATURE_ID:
+          return getTarget().getId();
         case DbModelPackage.ARTIFACT_UNIQUEID_FEATURE_ID:
           return getTarget().getUniqueID();
+        case DbModelPackage.ARTIFACT_PUBLISHEDON_FEATURE_ID:
+          return getTarget().getPublishedOn();
         case DbModelPackage.ARTIFACT_HASDETAILS_FEATURE_ID:
           return getTarget().getHasDetails();
         default:
@@ -399,9 +520,6 @@ public class DbModelFactory implements ModelFactory {
       switch (featureID) {
         case DbModelPackage.ARTIFACT_PUBLISHEDON_FEATURE_ID:
           getTarget().setPublishedOn((Platform) value);
-          return;
-        case DbModelPackage.ARTIFACT_UNIQUEID_FEATURE_ID:
-          getTarget().setUniqueID((String) value);
           return;
         case DbModelPackage.ARTIFACT_HASDETAILS_FEATURE_ID:
           getTarget().setHasDetails((List<ArtifactDetails>) value);
@@ -452,11 +570,12 @@ public class DbModelFactory implements ModelFactory {
    *
    * @generated
    */
-  public static class PlatformModelObject<E extends Platform> extends AbstractModelObject<E> {
+  public static class PlatformModelObject<E extends Platform> extends AbstractArtifactModelObject<E> {
 
     /**
      * @generated
      */
+    @Override
     public EClass eClass() {
       return DbModelPackage.INSTANCE.getPlatformEClass();
     }
@@ -464,6 +583,7 @@ public class DbModelFactory implements ModelFactory {
     /**
      * @generated
      */
+    @Override
     public ModelPackage getModelPackage() {
       return DbModelPackage.INSTANCE;
     }
@@ -483,10 +603,14 @@ public class DbModelFactory implements ModelFactory {
     public Object eGet(EStructuralFeature eStructuralFeature) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
-        case DbModelPackage.PLATFORM_URL_FEATURE_ID:
-          return getTarget().getURL();
+        case DbModelPackage.PLATFORM_ID_FEATURE_ID:
+          return getTarget().getId();
         case DbModelPackage.PLATFORM_UNIQUEID_FEATURE_ID:
           return getTarget().getUniqueID();
+        case DbModelPackage.PLATFORM_URL_FEATURE_ID:
+          return getTarget().getURL();
+        case DbModelPackage.PLATFORM_HASDETAILS_FEATURE_ID:
+          return getTarget().getHasDetails();
         default:
           return super.eGet(eStructuralFeature);
       }
@@ -502,8 +626,8 @@ public class DbModelFactory implements ModelFactory {
         case DbModelPackage.PLATFORM_URL_FEATURE_ID:
           getTarget().setURL((String) value);
           return;
-        case DbModelPackage.PLATFORM_UNIQUEID_FEATURE_ID:
-          getTarget().setUniqueID((String) value);
+        case DbModelPackage.PLATFORM_HASDETAILS_FEATURE_ID:
+          getTarget().setHasDetails((PlatformDetails) value);
           return;
         default:
           super.eSet(eStructuralFeature, value);
@@ -547,11 +671,12 @@ public class DbModelFactory implements ModelFactory {
    *
    * @generated
    */
-  public static class AuthorModelObject<E extends Author> extends AbstractModelObject<E> {
+  public static class AuthorModelObject<E extends Author> extends AbstractArtifactModelObject<E> {
 
     /**
      * @generated
      */
+    @Override
     public EClass eClass() {
       return DbModelPackage.INSTANCE.getAuthorEClass();
     }
@@ -559,6 +684,7 @@ public class DbModelFactory implements ModelFactory {
     /**
      * @generated
      */
+    @Override
     public ModelPackage getModelPackage() {
       return DbModelPackage.INSTANCE;
     }
@@ -578,6 +704,8 @@ public class DbModelFactory implements ModelFactory {
     public Object eGet(EStructuralFeature eStructuralFeature) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
+        case DbModelPackage.AUTHOR_ID_FEATURE_ID:
+          return getTarget().getId();
         case DbModelPackage.AUTHOR_UNIQUEID_FEATURE_ID:
           return getTarget().getUniqueID();
         case DbModelPackage.AUTHOR_ACTIVEON_FEATURE_ID:
@@ -597,9 +725,6 @@ public class DbModelFactory implements ModelFactory {
     public void eSet(EStructuralFeature eStructuralFeature, Object value) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
-        case DbModelPackage.AUTHOR_UNIQUEID_FEATURE_ID:
-          getTarget().setUniqueID((String) value);
-          return;
         case DbModelPackage.AUTHOR_ACTIVEON_FEATURE_ID:
           getTarget().setActiveOn((List<Platform>) value);
           return;
@@ -658,11 +783,12 @@ public class DbModelFactory implements ModelFactory {
    *
    * @generated
    */
-  public static class AuthorDetailsModelObject<E extends AuthorDetails> extends AbstractModelObject<E> {
+  public static class AuthorDetailsModelObject<E extends AuthorDetails> extends AbstractArtifactDetailsModelObject<E> {
 
     /**
      * @generated
      */
+    @Override
     public EClass eClass() {
       return DbModelPackage.INSTANCE.getAuthorDetailsEClass();
     }
@@ -670,6 +796,7 @@ public class DbModelFactory implements ModelFactory {
     /**
      * @generated
      */
+    @Override
     public ModelPackage getModelPackage() {
       return DbModelPackage.INSTANCE;
     }
@@ -693,6 +820,8 @@ public class DbModelFactory implements ModelFactory {
           return getTarget().getType();
         case DbModelPackage.AUTHORDETAILS_CONTENT_FEATURE_ID:
           return getTarget().getContent();
+        case DbModelPackage.AUTHORDETAILS_ID_FEATURE_ID:
+          return getTarget().getId();
         default:
           return super.eGet(eStructuralFeature);
       }
@@ -705,11 +834,103 @@ public class DbModelFactory implements ModelFactory {
     public void eSet(EStructuralFeature eStructuralFeature, Object value) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
-        case DbModelPackage.AUTHORDETAILS_TYPE_FEATURE_ID:
+        default:
+          super.eSet(eStructuralFeature, value);
+      }
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public boolean eAddTo(EStructuralFeature eStructuralFeature, Object value) {
+      final int featureID = eClass().getFeatureID(eStructuralFeature);
+      switch (featureID) {
+        default:
+          return super.eAddTo(eStructuralFeature, value);
+      }
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public boolean eRemoveFrom(EStructuralFeature eStructuralFeature, Object value) {
+      final int featureID = eClass().getFeatureID(eStructuralFeature);
+      switch (featureID) {
+        default:
+          return super.eRemoveFrom(eStructuralFeature, value);
+      }
+    }
+  }
+
+  /**
+   * The adapter/wrapper for the EClass '<em><b>AbstractArtifactDetails</b></em>'.
+   *
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   *
+   * @param <E>
+   *          the domain model java class
+   *
+   * @generated
+   */
+  public static class AbstractArtifactDetailsModelObject<E extends AbstractArtifactDetails> extends AbstractModelObject<E> {
+
+    /**
+     * @generated
+     */
+    public EClass eClass() {
+      return DbModelPackage.INSTANCE.getAbstractArtifactDetailsEClass();
+    }
+
+    /**
+     * @generated
+     */
+    public ModelPackage getModelPackage() {
+      return DbModelPackage.INSTANCE;
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public Class<?> getTargetClass() {
+      return AbstractArtifactDetails.class;
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public Object eGet(EStructuralFeature eStructuralFeature) {
+      final int featureID = eClass().getFeatureID(eStructuralFeature);
+      switch (featureID) {
+        case DbModelPackage.ABSTRACTARTIFACTDETAILS_TYPE_FEATURE_ID:
+          return getTarget().getType();
+        case DbModelPackage.ABSTRACTARTIFACTDETAILS_CONTENT_FEATURE_ID:
+          return getTarget().getContent();
+        case DbModelPackage.ABSTRACTARTIFACTDETAILS_ID_FEATURE_ID:
+          return getTarget().getId();
+        default:
+          return super.eGet(eStructuralFeature);
+      }
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public void eSet(EStructuralFeature eStructuralFeature, Object value) {
+      final int featureID = eClass().getFeatureID(eStructuralFeature);
+      switch (featureID) {
+        case DbModelPackage.ABSTRACTARTIFACTDETAILS_TYPE_FEATURE_ID:
           getTarget().setType((String) value);
           return;
-        case DbModelPackage.AUTHORDETAILS_CONTENT_FEATURE_ID:
+        case DbModelPackage.ABSTRACTARTIFACTDETAILS_CONTENT_FEATURE_ID:
           getTarget().setContent((String) value);
+          return;
+        case DbModelPackage.ABSTRACTARTIFACTDETAILS_ID_FEATURE_ID:
+          getTarget().setId((Integer) value);
           return;
         default:
           super.eSet(eStructuralFeature, value);
@@ -753,11 +974,12 @@ public class DbModelFactory implements ModelFactory {
    *
    * @generated
    */
-  public static class CommentDetailsModelObject<E extends CommentDetails> extends AbstractModelObject<E> {
+  public static class CommentDetailsModelObject<E extends CommentDetails> extends AbstractArtifactDetailsModelObject<E> {
 
     /**
      * @generated
      */
+    @Override
     public EClass eClass() {
       return DbModelPackage.INSTANCE.getCommentDetailsEClass();
     }
@@ -765,6 +987,7 @@ public class DbModelFactory implements ModelFactory {
     /**
      * @generated
      */
+    @Override
     public ModelPackage getModelPackage() {
       return DbModelPackage.INSTANCE;
     }
@@ -788,6 +1011,8 @@ public class DbModelFactory implements ModelFactory {
           return getTarget().getType();
         case DbModelPackage.COMMENTDETAILS_CONTENT_FEATURE_ID:
           return getTarget().getContent();
+        case DbModelPackage.COMMENTDETAILS_ID_FEATURE_ID:
+          return getTarget().getId();
         default:
           return super.eGet(eStructuralFeature);
       }
@@ -800,12 +1025,6 @@ public class DbModelFactory implements ModelFactory {
     public void eSet(EStructuralFeature eStructuralFeature, Object value) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
-        case DbModelPackage.COMMENTDETAILS_TYPE_FEATURE_ID:
-          getTarget().setType((String) value);
-          return;
-        case DbModelPackage.COMMENTDETAILS_CONTENT_FEATURE_ID:
-          getTarget().setContent((String) value);
-          return;
         default:
           super.eSet(eStructuralFeature, value);
       }
@@ -818,7 +1037,6 @@ public class DbModelFactory implements ModelFactory {
     public boolean eAddTo(EStructuralFeature eStructuralFeature, Object value) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
-
         default:
           return super.eAddTo(eStructuralFeature, value);
       }
@@ -831,7 +1049,6 @@ public class DbModelFactory implements ModelFactory {
     public boolean eRemoveFrom(EStructuralFeature eStructuralFeature, Object value) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
-
         default:
           return super.eRemoveFrom(eStructuralFeature, value);
       }
@@ -848,11 +1065,12 @@ public class DbModelFactory implements ModelFactory {
    *
    * @generated
    */
-  public static class ArtifactDetailsModelObject<E extends ArtifactDetails> extends AbstractModelObject<E> {
+  public static class ArtifactDetailsModelObject<E extends ArtifactDetails> extends AbstractArtifactDetailsModelObject<E> {
 
     /**
      * @generated
      */
+    @Override
     public EClass eClass() {
       return DbModelPackage.INSTANCE.getArtifactDetailsEClass();
     }
@@ -860,6 +1078,7 @@ public class DbModelFactory implements ModelFactory {
     /**
      * @generated
      */
+    @Override
     public ModelPackage getModelPackage() {
       return DbModelPackage.INSTANCE;
     }
@@ -883,6 +1102,8 @@ public class DbModelFactory implements ModelFactory {
           return getTarget().getType();
         case DbModelPackage.ARTIFACTDETAILS_CONTENT_FEATURE_ID:
           return getTarget().getContent();
+        case DbModelPackage.ARTIFACTDETAILS_ID_FEATURE_ID:
+          return getTarget().getId();
         default:
           return super.eGet(eStructuralFeature);
       }
@@ -895,12 +1116,6 @@ public class DbModelFactory implements ModelFactory {
     public void eSet(EStructuralFeature eStructuralFeature, Object value) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
-        case DbModelPackage.ARTIFACTDETAILS_TYPE_FEATURE_ID:
-          getTarget().setType((String) value);
-          return;
-        case DbModelPackage.ARTIFACTDETAILS_CONTENT_FEATURE_ID:
-          getTarget().setContent((String) value);
-          return;
         default:
           super.eSet(eStructuralFeature, value);
       }
@@ -913,7 +1128,6 @@ public class DbModelFactory implements ModelFactory {
     public boolean eAddTo(EStructuralFeature eStructuralFeature, Object value) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
-
         default:
           return super.eAddTo(eStructuralFeature, value);
       }
@@ -926,7 +1140,97 @@ public class DbModelFactory implements ModelFactory {
     public boolean eRemoveFrom(EStructuralFeature eStructuralFeature, Object value) {
       final int featureID = eClass().getFeatureID(eStructuralFeature);
       switch (featureID) {
+        default:
+          return super.eRemoveFrom(eStructuralFeature, value);
+      }
+    }
+  }
 
+  /**
+   * The adapter/wrapper for the EClass '<em><b>PlatformDetails</b></em>'.
+   *
+   * <!-- begin-user-doc --> <!-- end-user-doc -->
+   *
+   * @param <E>
+   *          the domain model java class
+   *
+   * @generated
+   */
+  public static class PlatformDetailsModelObject<E extends PlatformDetails> extends AbstractArtifactDetailsModelObject<E> {
+
+    /**
+     * @generated
+     */
+    @Override
+    public EClass eClass() {
+      return DbModelPackage.INSTANCE.getPlatformDetailsEClass();
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public ModelPackage getModelPackage() {
+      return DbModelPackage.INSTANCE;
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public Class<?> getTargetClass() {
+      return PlatformDetails.class;
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public Object eGet(EStructuralFeature eStructuralFeature) {
+      final int featureID = eClass().getFeatureID(eStructuralFeature);
+      switch (featureID) {
+        case DbModelPackage.PLATFORMDETAILS_TYPE_FEATURE_ID:
+          return getTarget().getType();
+        case DbModelPackage.PLATFORMDETAILS_CONTENT_FEATURE_ID:
+          return getTarget().getContent();
+        case DbModelPackage.PLATFORMDETAILS_ID_FEATURE_ID:
+          return getTarget().getId();
+        default:
+          return super.eGet(eStructuralFeature);
+      }
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public void eSet(EStructuralFeature eStructuralFeature, Object value) {
+      final int featureID = eClass().getFeatureID(eStructuralFeature);
+      switch (featureID) {
+        default:
+          super.eSet(eStructuralFeature, value);
+      }
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public boolean eAddTo(EStructuralFeature eStructuralFeature, Object value) {
+      final int featureID = eClass().getFeatureID(eStructuralFeature);
+      switch (featureID) {
+        default:
+          return super.eAddTo(eStructuralFeature, value);
+      }
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public boolean eRemoveFrom(EStructuralFeature eStructuralFeature, Object value) {
+      final int featureID = eClass().getFeatureID(eStructuralFeature);
+      switch (featureID) {
         default:
           return super.eRemoveFrom(eStructuralFeature, value);
       }

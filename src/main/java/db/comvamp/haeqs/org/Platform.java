@@ -1,7 +1,9 @@
 package db.comvamp.haeqs.org;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 /**
  * A representation of the model object '<em><b>Platform</b></em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -9,7 +11,7 @@ import javax.persistence.Entity;
  * @generated
  */
 @Entity(name = "comvamp_db_Platform")
-public class Platform {
+public class Platform extends AbstractArtifact {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -24,8 +26,8 @@ public class Platform {
    * 
    * @generated
    */
-  @Basic()
-  private String uniqueID = null;
+  @ManyToOne(cascade = { CascadeType.DETACHjavax.persistence.CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH }, optional = true)
+  private PlatformDetails hasDetails = null;
 
   /**
    * Returns the value of '<em><b>URL</b></em>' feature.
@@ -53,28 +55,28 @@ public class Platform {
   }
 
   /**
-   * Returns the value of '<em><b>uniqueID</b></em>' feature.
+   * Returns the value of '<em><b>hasDetails</b></em>' feature.
    *
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @return the value of '<em><b>uniqueID</b></em>' feature
+   * @return the value of '<em><b>hasDetails</b></em>' feature
    * @generated
    */
-  public String getUniqueID() {
-    return uniqueID;
+  public PlatformDetails getHasDetails() {
+    return hasDetails;
   }
 
   /**
-   * Sets the '{@link Platform#getUniqueID() <em>uniqueID</em>}' feature.
+   * Sets the '{@link Platform#getHasDetails() <em>hasDetails</em>}' feature.
    *
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
-   * @param newUniqueID
-   *          the new value of the '{@link Platform#getUniqueID() uniqueID}' feature.
+   * @param newHasDetails
+   *          the new value of the '{@link Platform#getHasDetails() hasDetails}' feature.
    * @generated
    */
-  public void setUniqueID(String newUniqueID) {
-    uniqueID = newUniqueID;
+  public void setHasDetails(PlatformDetails newHasDetails) {
+    hasDetails = newHasDetails;
   }
 
   /**
@@ -84,6 +86,6 @@ public class Platform {
    */
   @Override
   public String toString() {
-    return "Platform " + " [uRL: " + getURL() + "]" + " [uniqueID: " + getUniqueID() + "]";
+    return "Platform " + " [uRL: " + getURL() + "]" + "{extends: " + super.toString() + "} ";
   }
 }

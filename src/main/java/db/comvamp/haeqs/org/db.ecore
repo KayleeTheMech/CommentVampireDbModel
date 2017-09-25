@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="comvamp.db" nsURI="https://org.haeqs.comvamp.db" nsPrefix="comvamp.db">
-  <eClassifiers xsi:type="ecore:EClass" name="Comment">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="org.eclipse.emf.texo">
-        <details key="java.member" value="uniqueID"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inResponseTo" lowerBound="1"
-        eType="#//Artifact">
+  <eClassifiers xsi:type="ecore:EClass" name="Comment" eSuperTypes="#//AbstractArtifact">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inResponseTo" eType="#//Artifact">
       <eAnnotations source="org.eclipse.emf.texo">
         <details key="java.member" value="inResponseTo"/>
       </eAnnotations>
@@ -32,12 +26,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Author">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="org.eclipse.emf.texo">
-        <details key="java.member" value="uniqueID"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+  <eClassifiers xsi:type="ecore:EClass" name="Author" eSuperTypes="#//AbstractArtifact">
     <eStructuralFeatures xsi:type="ecore:EReference" name="activeOn" lowerBound="1"
         upperBound="-1" eType="#//Platform">
       <eAnnotations source="org.eclipse.emf.texo">
@@ -51,28 +40,23 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Platform">
+  <eClassifiers xsi:type="ecore:EClass" name="Platform" eSuperTypes="#//AbstractArtifact">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="URL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="org.eclipse.emf.texo">
         <details key="java.member" value="uRL"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasDetails" eType="#//PlatformDetails">
       <eAnnotations source="org.eclipse.emf.texo">
-        <details key="java.member" value="uniqueID"/>
+        <details key="java.member" value="hasDetails"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Artifact">
+  <eClassifiers xsi:type="ecore:EClass" name="Artifact" eSuperTypes="#//AbstractArtifact">
     <eStructuralFeatures xsi:type="ecore:EReference" name="publishedOn" lowerBound="1"
         eType="#//Platform">
       <eAnnotations source="org.eclipse.emf.texo">
         <details key="java.member" value="publishedOn"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="org.eclipse.emf.texo">
-        <details key="java.member" value="uniqueID"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasDetails" upperBound="-1"
@@ -82,31 +66,23 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AuthorDetails">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+  <eClassifiers xsi:type="ecore:EClass" name="AuthorDetails" eSuperTypes="#//AbstractArtifactDetails"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CommentDetails" eSuperTypes="#//AbstractArtifactDetails"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ArtifactDetails" eSuperTypes="#//AbstractArtifactDetails"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PlatformDetails" eSuperTypes="#//AbstractArtifactDetails"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractArtifact" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="org.eclipse.emf.texo">
-        <details key="java.member" value="type"/>
+        <details key="java.member" value="id"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="org.eclipse.emf.texo">
-        <details key="java.member" value="content"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CommentDetails">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="org.eclipse.emf.texo">
-        <details key="java.member" value="type"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="org.eclipse.emf.texo">
-        <details key="java.member" value="content"/>
+        <details key="java.member" value="uniqueID"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArtifactDetails">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractArtifactDetails" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="org.eclipse.emf.texo">
         <details key="java.member" value="type"/>
@@ -115,6 +91,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="org.eclipse.emf.texo">
         <details key="java.member" value="content"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="org.eclipse.emf.texo">
+        <details key="java.member" value="id"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

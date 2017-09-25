@@ -2,7 +2,6 @@ package db.comvamp.haeqs.org;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -14,14 +13,14 @@ import javax.persistence.ManyToOne;
  * @generated
  */
 @Entity(name = "comvamp_db_Artifact")
-public class Artifact {
+public class Artifact extends AbstractArtifact {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
    * @generated
    */
-  @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH }, optional = false)
+  @ManyToOne(cascade = { CascadeType.DETACHjavax.persistence.CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH }, optional = true)
   private Platform publishedOn = null;
 
   /**
@@ -29,15 +28,7 @@ public class Artifact {
    * 
    * @generated
    */
-  @Basic()
-  private String uniqueID = null;
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated
-   */
-  @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+  @ManyToMany(cascade = { CascadeType.DETACHjavax.persistence.CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
   private List<ArtifactDetails> hasDetails = new ArrayList<ArtifactDetails>();
 
   /**
@@ -63,31 +54,6 @@ public class Artifact {
    */
   public void setPublishedOn(Platform newPublishedOn) {
     publishedOn = newPublishedOn;
-  }
-
-  /**
-   * Returns the value of '<em><b>uniqueID</b></em>' feature.
-   *
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @return the value of '<em><b>uniqueID</b></em>' feature
-   * @generated
-   */
-  public String getUniqueID() {
-    return uniqueID;
-  }
-
-  /**
-   * Sets the '{@link Artifact#getUniqueID() <em>uniqueID</em>}' feature.
-   *
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param newUniqueID
-   *          the new value of the '{@link Artifact#getUniqueID() uniqueID}' feature.
-   * @generated
-   */
-  public void setUniqueID(String newUniqueID) {
-    uniqueID = newUniqueID;
   }
 
   /**
@@ -122,6 +88,6 @@ public class Artifact {
    */
   @Override
   public String toString() {
-    return "Artifact " + " [uniqueID: " + getUniqueID() + "]";
+    return "Artifact " + "{extends: " + super.toString() + "} ";
   }
 }

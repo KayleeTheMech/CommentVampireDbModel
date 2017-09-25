@@ -2,7 +2,6 @@ package db.comvamp.haeqs.org;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -13,22 +12,14 @@ import javax.persistence.ManyToMany;
  * @generated
  */
 @Entity(name = "comvamp_db_Author")
-public class Author {
+public class Author extends AbstractArtifact {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
    * @generated
    */
-  @Basic()
-  private String uniqueID = null;
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated
-   */
-  @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+  @ManyToMany(cascade = { CascadeType.DETACHjavax.persistence.CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
   private List<Platform> activeOn = new ArrayList<Platform>();
 
   /**
@@ -36,33 +27,8 @@ public class Author {
    * 
    * @generated
    */
-  @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+  @ManyToMany(cascade = { CascadeType.DETACHjavax.persistence.CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
   private List<AuthorDetails> hasDetails = new ArrayList<AuthorDetails>();
-
-  /**
-   * Returns the value of '<em><b>uniqueID</b></em>' feature.
-   *
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @return the value of '<em><b>uniqueID</b></em>' feature
-   * @generated
-   */
-  public String getUniqueID() {
-    return uniqueID;
-  }
-
-  /**
-   * Sets the '{@link Author#getUniqueID() <em>uniqueID</em>}' feature.
-   *
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param newUniqueID
-   *          the new value of the '{@link Author#getUniqueID() uniqueID}' feature.
-   * @generated
-   */
-  public void setUniqueID(String newUniqueID) {
-    uniqueID = newUniqueID;
-  }
 
   /**
    * Returns the value of '<em><b>activeOn</b></em>' feature.
@@ -121,6 +87,6 @@ public class Author {
    */
   @Override
   public String toString() {
-    return "Author " + " [uniqueID: " + getUniqueID() + "]";
+    return "Author " + "{extends: " + super.toString() + "} ";
   }
 }

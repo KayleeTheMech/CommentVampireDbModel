@@ -2,7 +2,6 @@ package db.comvamp.haeqs.org;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -14,22 +13,14 @@ import javax.persistence.ManyToOne;
  * @generated
  */
 @Entity(name = "comvamp_db_Comment")
-public class Comment {
+public class Comment extends AbstractArtifact {
 
   /**
    * <!-- begin-user-doc --> <!-- end-user-doc -->
    * 
    * @generated
    */
-  @Basic()
-  private String uniqueID = null;
-
-  /**
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @generated
-   */
-  @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH }, optional = false)
+  @ManyToOne(cascade = { CascadeType.DETACHjavax.persistence.CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH }, optional = true)
   private Artifact inResponseTo = null;
 
   /**
@@ -37,7 +28,7 @@ public class Comment {
    * 
    * @generated
    */
-  @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH }, optional = false)
+  @ManyToOne(cascade = { CascadeType.DETACHjavax.persistence.CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH }, optional = true)
   private Platform publishedOn = null;
 
   /**
@@ -45,7 +36,7 @@ public class Comment {
    * 
    * @generated
    */
-  @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+  @ManyToMany(cascade = { CascadeType.DETACHjavax.persistence.CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
   private List<CommentDetails> hasDetails = new ArrayList<CommentDetails>();
 
   /**
@@ -53,33 +44,8 @@ public class Comment {
    * 
    * @generated
    */
-  @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH }, optional = false)
+  @ManyToOne(cascade = { CascadeType.DETACHjavax.persistence.CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH }, optional = true)
   private Author publishedBy = null;
-
-  /**
-   * Returns the value of '<em><b>uniqueID</b></em>' feature.
-   *
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @return the value of '<em><b>uniqueID</b></em>' feature
-   * @generated
-   */
-  public String getUniqueID() {
-    return uniqueID;
-  }
-
-  /**
-   * Sets the '{@link Comment#getUniqueID() <em>uniqueID</em>}' feature.
-   *
-   * <!-- begin-user-doc --> <!-- end-user-doc -->
-   * 
-   * @param newUniqueID
-   *          the new value of the '{@link Comment#getUniqueID() uniqueID}' feature.
-   * @generated
-   */
-  public void setUniqueID(String newUniqueID) {
-    uniqueID = newUniqueID;
-  }
 
   /**
    * Returns the value of '<em><b>inResponseTo</b></em>' feature.
@@ -188,6 +154,6 @@ public class Comment {
    */
   @Override
   public String toString() {
-    return "Comment " + " [uniqueID: " + getUniqueID() + "]";
+    return "Comment " + "{extends: " + super.toString() + "} ";
   }
 }
