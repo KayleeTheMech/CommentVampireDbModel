@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotationsmodel:AnnotatedModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:annotationsmodel="http://www.eclipse.org/emf/texo/annotations/model" xmlns:ormannotations="http://www.eclipse.org/emf/texo/orm/ormannotations">
+  <annotatedEPackages>
+    <ePackage href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#/"/>
+    <ePackageAnnotations xsi:type="ormannotations:EPackageORMAnnotation" generateFullDbSchemaNames="false" maximumSqlNameLength="255" lowerCasedNames="false" upperCasedNames="false" enforceUniqueNames="false" useJoinTablesForContainment="false" useJoinTablesForNonContainment="true" generateJavaAnnotations="false" addOrderColumnToListMappings="false" renameSQLReservedNames="false" uniqueEntityNames="true" setDelimitedIdentifierTagInORM="true"/>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEClass">
+      <eClass href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Comment"/>
+      <eClassAnnotations xsi:type="ormannotations:EClassORMAnnotation">
+        <entity class="xyz.haeqs.Comment" name="comvamp_db_Comment"/>
+      </eClassAnnotations>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Comment/uniqueID"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic name="uniqueID"/>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEReference">
+        <eReference href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Comment/inResponseTo"/>
+        <eReferenceAnnotations xsi:type="ormannotations:EReferenceORMAnnotation">
+          <manyToOne name="inResponseTo" optional="false">
+            <cascade>
+              <cascadePersist/>
+              <cascadeMerge/>
+              <cascadeRefresh/>
+            </cascade>
+          </manyToOne>
+        </eReferenceAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEReference">
+        <eReference href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Comment/publishedOn"/>
+        <eReferenceAnnotations xsi:type="ormannotations:EReferenceORMAnnotation">
+          <manyToOne name="publishedOn" optional="false">
+            <cascade>
+              <cascadePersist/>
+              <cascadeMerge/>
+              <cascadeRefresh/>
+            </cascade>
+          </manyToOne>
+        </eReferenceAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEReference">
+        <eReference href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Comment/hasDetails"/>
+        <eReferenceAnnotations xsi:type="ormannotations:EReferenceORMAnnotation">
+          <manyToMany name="hasDetails">
+            <cascade>
+              <cascadePersist/>
+              <cascadeMerge/>
+              <cascadeRefresh/>
+            </cascade>
+          </manyToMany>
+        </eReferenceAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEReference">
+        <eReference href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Comment/publishedBy"/>
+        <eReferenceAnnotations xsi:type="ormannotations:EReferenceORMAnnotation">
+          <manyToOne name="publishedBy" optional="false">
+            <cascade>
+              <cascadePersist/>
+              <cascadeMerge/>
+              <cascadeRefresh/>
+            </cascade>
+          </manyToOne>
+        </eReferenceAnnotations>
+      </annotatedEStructuralFeatures>
+    </annotatedEClassifiers>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEClass">
+      <eClass href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Artifact"/>
+      <eClassAnnotations xsi:type="ormannotations:EClassORMAnnotation">
+        <entity class="xyz.haeqs.Artifact" name="comvamp_db_Artifact"/>
+      </eClassAnnotations>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEReference">
+        <eReference href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Artifact/publishedOn"/>
+        <eReferenceAnnotations xsi:type="ormannotations:EReferenceORMAnnotation">
+          <manyToOne name="publishedOn" optional="false">
+            <cascade>
+              <cascadePersist/>
+              <cascadeMerge/>
+              <cascadeRefresh/>
+            </cascade>
+          </manyToOne>
+        </eReferenceAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Artifact/uniqueID"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic name="uniqueID"/>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEReference">
+        <eReference href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Artifact/hasDetails"/>
+        <eReferenceAnnotations xsi:type="ormannotations:EReferenceORMAnnotation">
+          <manyToMany name="hasDetails">
+            <cascade>
+              <cascadePersist/>
+              <cascadeMerge/>
+              <cascadeRefresh/>
+            </cascade>
+          </manyToMany>
+        </eReferenceAnnotations>
+      </annotatedEStructuralFeatures>
+    </annotatedEClassifiers>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEClass">
+      <eClass href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Platform"/>
+      <eClassAnnotations xsi:type="ormannotations:EClassORMAnnotation">
+        <entity class="xyz.haeqs.Platform" name="comvamp_db_Platform"/>
+      </eClassAnnotations>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Platform/URL"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic name="uRL"/>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+    </annotatedEClassifiers>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEClass">
+      <eClass href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Author"/>
+      <eClassAnnotations xsi:type="ormannotations:EClassORMAnnotation">
+        <entity class="xyz.haeqs.Author" name="comvamp_db_Author"/>
+      </eClassAnnotations>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Author/uniqueID"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic name="uniqueID"/>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEReference">
+        <eReference href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Author/activeOn"/>
+        <eReferenceAnnotations xsi:type="ormannotations:EReferenceORMAnnotation">
+          <manyToMany name="activeOn">
+            <cascade>
+              <cascadePersist/>
+              <cascadeMerge/>
+              <cascadeRefresh/>
+            </cascade>
+          </manyToMany>
+        </eReferenceAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEReference">
+        <eReference href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//Author/hasDetails"/>
+        <eReferenceAnnotations xsi:type="ormannotations:EReferenceORMAnnotation">
+          <manyToMany name="hasDetails">
+            <cascade>
+              <cascadePersist/>
+              <cascadeMerge/>
+              <cascadeRefresh/>
+            </cascade>
+          </manyToMany>
+        </eReferenceAnnotations>
+      </annotatedEStructuralFeatures>
+    </annotatedEClassifiers>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEClass">
+      <eClass href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//AuthorDetails"/>
+      <eClassAnnotations xsi:type="ormannotations:EClassORMAnnotation">
+        <entity class="xyz.haeqs.AuthorDetails" name="comvamp_db_AuthorDetails"/>
+      </eClassAnnotations>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//AuthorDetails/type"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic name="type"/>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//AuthorDetails/content"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic name="content"/>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+    </annotatedEClassifiers>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEClass">
+      <eClass href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//CommentDetails"/>
+      <eClassAnnotations xsi:type="ormannotations:EClassORMAnnotation">
+        <entity class="xyz.haeqs.CommentDetails" name="comvamp_db_CommentDetails"/>
+      </eClassAnnotations>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//CommentDetails/type"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic name="type"/>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//CommentDetails/content"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic name="content"/>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+    </annotatedEClassifiers>
+    <annotatedEClassifiers xsi:type="annotationsmodel:AnnotatedEClass">
+      <eClass href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//ArtifactDetails"/>
+      <eClassAnnotations xsi:type="ormannotations:EClassORMAnnotation">
+        <entity class="xyz.haeqs.ArtifactDetails" name="comvamp_db_ArtifactDetails"/>
+      </eClassAnnotations>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//ArtifactDetails/type"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic name="type"/>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+      <annotatedEStructuralFeatures xsi:type="annotationsmodel:AnnotatedEAttribute">
+        <eAttribute href="platform:/resource/org.haeqs.comvamp.db/model/db.ecore#//ArtifactDetails/content"/>
+        <eAttributeAnnotations xsi:type="ormannotations:EAttributeORMAnnotation">
+          <basic name="content"/>
+        </eAttributeAnnotations>
+      </annotatedEStructuralFeatures>
+    </annotatedEClassifiers>
+  </annotatedEPackages>
+</annotationsmodel:AnnotatedModel>
