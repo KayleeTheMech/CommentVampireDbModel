@@ -13,9 +13,6 @@
         <eReferenceAnnotations xsi:type="ormannotations:EReferenceORMAnnotation">
           <manyToOne name="inResponseTo" optional="true">
             <cascade>
-              <cascadePersist/>
-              <cascadeMerge/>
-              <cascadeRefresh/>
               <cascadeDetach/>
             </cascade>
           </manyToOne>
